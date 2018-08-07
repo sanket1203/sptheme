@@ -1,0 +1,61 @@
+@media (max-width:1200px) {
+.container{ width:96%; margin:0 auto; padding:0;}
+.pocket_sec .left{ padding:75px 0;}
+
+}
+
+/************ Main **************/
+@media (max-width: 990px) {
+.top_part{ background:none;}
+.top_part .container{ max-width:600px;}
+.service_sec .block{ padding:0;}
+
+}
+
+@media (max-width: 767px) {
+html { -webkit-text-size-adjust:none;}
+.container{ width:93%; margin:0 auto; padding:0;}
+
+.navbar-default .navbar-toggle{ margin-right:0; margin-top:0px;}
+.navbar-default .navbar-toggle .icon-bar{background-color:#000; width:30px; height:4px;}
+.navbar-toggle { border: none;  background: transparent !important; margin-bottom:0;}
+.navbar-toggle:hover { background: transparent !important;}
+.navbar-toggle .icon-bar {width: 22px;transition: all 0.2s;}
+.navbar-toggle .top-bar {transform: rotate(45deg);transform-origin: 10% 10%;}
+.navbar-toggle .middle-bar {opacity: 0;}
+.navbar-toggle .bottom-bar {transform: rotate(-45deg);transform-origin: 10% 90%;}
+.navbar-toggle.collapsed .top-bar {transform: rotate(0);}
+.navbar-toggle.collapsed .middle-bar {opacity: 1;}
+.navbar-toggle.collapsed .bottom-bar {transform: rotate(0);}
+
+.top_part{ padding:30px 0;}
+.search_info{ margin-bottom:30px;}
+.service_sec{ padding-bottom:20px;}
+.pocket_sec .left{ padding:40px 0;}
+.pocket_sec p{ margin-bottom:30px;}
+.footer_sec{ padding-top:40px;}
+.download_link{ text-align:left;}
+.nav_sec{ margin-bottom:30px; padding-bottom:20px; border-bottom:1px solid rgba(0,0,0,0.1);}
+}
+
+/************ iphone **************/
+@media (max-width:600px) {
+html { -webkit-text-size-adjust:none;}
+.container{ width:91%;}
+.top_part{ padding-top:10px;}
+ul.right_links{ width:100%; float:left; text-align:center; margin-bottom:15px;}
+.logo{ width:100%; text-align:center;}
+.location_block h2{ font-size:29px;}
+.location_block p{ font-size:16px; margin-bottom:20px;}
+.search_info .input-group-btn{ width:100%; float:left; white-space:normal;}
+.search_info .form-control{ border-right:1px solid #bebfc5;}
+.search_info .location_btn{ border:none; border-left:1px solid #bebfc5; border-right:1px solid #bebfc5;}
+.search_info .btn-default{ width:100%; margin:0 !important;}
+.pocket_sec h2{ font-size:26px;}
+.pocket_sec p{ font-size:15px;}
+.btn_link{ width:46%; display:inline-block; text-align:center;}
+.copyright .col-xs-6{ width:100%;}
+ul.social_link{ text-align:center;}
+.copyright p{ text-align:center; font-size:14px;}
+}
+
