@@ -70,9 +70,59 @@
 
 		</footer>
 </div><!-- #page -->
+</div> <!-- hidden mobile -->
+<div class="hidden-lg hidden-md hidden-sm">
+
+<!-- Mobile Sec -->
+<div class="mobile_sec">
+	<div class="container">
+    	<div class="inner">
+            <div class="mobile_slider">
+                <div id="owl-demo" class="owl-carousel">
+                    <div class="item">
+                        <figure><img src="<?php echo get_template_directory_uri(''); ?>/images/mobile_slider_image_1.jpg" alt=""></figure>
+                    </div>
+                    <div class="item">
+                        <figure><img src="<?php echo get_template_directory_uri(''); ?>/images/mobile_slider_image_2.jpg" alt=""></figure>
+                    </div>
+                    <div class="item">
+                        <figure><img src="<?php echo get_template_directory_uri(''); ?>/images/mobile_slider_image_3.jpg" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile_detail">
+                <h2>With a wide collection of cuisines</h2>
+                <p>Ready to see top restarurants to order?</p>
+                <a href="#" class="setup_link">Setup Your Location</a>
+                <p>have an account? <a href="#" class="userurl" id="login2">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 <script src="<?php echo get_template_directory_uri(''); ?>/js/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(''); ?>/js/bootstrap.min.js"></script>  
 <?php wp_footer(); ?>
-
+<script src="<?php echo get_template_directory_uri(''); ?>/js/owl.carousel.js"></script>  
+<script>
+  $(document).ready(function () {
+	var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        margin:0,
+        loop: true,
+		dots:true,
+		nav:false,
+		items:5,
+        responsive: {
+          0: { items: 1 },
+          480: { items: 1 },
+		  767: { items: 1 },
+		  992: { items: 1 },
+          1000: { items:1, }
+        }
+      })
+});
+</script>
 </body>
 </html>

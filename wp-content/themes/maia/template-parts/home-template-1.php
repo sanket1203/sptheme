@@ -5,5 +5,32 @@
  */
 get_header();
 ?>
-
+<!-- Service Sec -->
+<div class="service_sec">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-4 col-sm-4 col-xs-12">
+            	<div class="block">
+                	<figure><img src="<?php echo get_template_directory_uri().'/images/service_icon_1.png'?>" alt=""></figure>
+                    <h3>No Minimum Order</h3>
+                    <p>Order in for yourself or for the group, with no restrictions on order value</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+            	<div class="block">
+                	<figure><img src="<?php echo get_template_directory_uri().'/images/service_icon_2.png'?>" alt=""></figure>
+                    <h3>Live Order Tracking</h3>
+                    <p>Know where your order is at all times, from the restaurant to your doorstep</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+            	<div class="block">
+                	<figure><img src="<?php echo get_template_directory_uri().'/images/service_icon_3.png'?>" alt=""></figure>
+                    <h3>Lightning-Fast Delivery</h3>
+                    <p>Experience Swiggy's superfast delivery for food delivered fresh & on time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php get_footer();?>
