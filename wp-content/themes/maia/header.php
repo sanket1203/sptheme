@@ -17,6 +17,9 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/font-awesome.css' ?>" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri().'/css/owl.carousel.css'?>" rel="stylesheet">
 	<?php wp_head(); ?>
+	<script>var ajax_url= '<?php echo admin_url('admin-ajax.php'); ?>';</script>
+	
+	
 </head>
 
 <body <?php body_class(); ?>>
@@ -48,10 +51,7 @@
     	<a href="#" class="close_btn2"><i class="fa fa-close"></i></a>
     	<div class="inner">
         	<!--<figure><img src="images/login_image.png" alt=""></figure>-->
-        	<div class="title_info">
-            	<h2>Sign up</h2>
-                <span>or <a href="#">login to your account</a></span>
-            </div>
+        	
 			<?php echo do_shortcode('[user_register]'); ?>
 			
         </div>
@@ -111,35 +111,7 @@
 		
 	</header><!-- #masthead -->
 <script>
-jQuery(document).ready(function(){
-	$('.userurl').click(function(){
-		$('.register_info').css('display','block');
-		var userurl = $(this).attr('id');
-		if(userurl == 'login' || userurl == 'login2'){
-			$('.loginbx').animate({left: '400px'});
-			$('.userlogbox').css('display','block');		
-			$('.registerbx').css('display','none');
-		}
-		login2
-		if(userurl == 'signup'){
-			$('.registerbx').animate({right: '400px'})
-			$('.userlogbox').css('display','block');
-			$('.loginbx').css('display','none');
-		}
-	});
-	$('.close_btn').click(function(){
-		$('.loginbx').animate({left: '-400px'});
-		$('.register_info').fadeOut();
-		$('.loginbx').removeAttr( 'style' );
-		$('.registerbx').removeAttr( 'style' );
-	});
-	$('.close_btn2').click(function(){
-		$('.registerbx').animate({right: '-400px'});
-		$('.register_info').fadeOut();
-		$('.loginbx').removeAttr( 'style' );
-		$('.registerbx').removeAttr( 'style' );
-	});
-});
+
 </script>	
 	
 	<div id="content" class="site-content">

@@ -33,4 +33,35 @@ get_header();
         </div>
     </div>
 </div>
+<div class="pocket_sec">
+	<div class="container">
+    	<div class="col-lg-6 col-sm-6 col-xs-12">
+        	<div class="left">
+                <h2>Restaurants in your pocket</h2>
+                <p>Order from your favorite restaurants & track on the go, with the all-new Swiggy app.</p>
+                <div class="btn-block">
+                    <a href="#" class="btn_link"><img src="<?php echo get_template_directory_uri().'/images/pocket_image_1.jpg'; ?>" alt=""></a>
+                    <a href="#" class="btn_link"><img src="<?php echo get_template_directory_uri().'/images/pocket_image_2.jpg'; ?>" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+        	<figure><img src="<?php echo get_template_directory_uri().'/images/food_image.png'; ?>" alt=""></figure>
+        </div>
+    </div>
+</div>
+
+<div class="available_sec">
+	<div class="container">
+    	<ul>
+        	<li><a href="#">Ahmedabad</a></li>
+            <li><a href="#">Bangalore</a></li>
+            <li><a href="#">Delhi</a></li>
+            <li><a href="#">Kolkata</a></li>
+            <li><a href="#">Noida</a></li>
+            <li><a href="#">Pune</a></li>
+            <li><a href="#">Surat</a></li>
+        </ul>
+    </div>
+</div>
 <?php get_footer();?>

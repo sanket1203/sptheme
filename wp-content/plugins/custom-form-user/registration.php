@@ -1,6 +1,10 @@
 <?php
 /* Registration design view */
 function sp_registration_form(){ ?>
+			<div class="title_info">
+            	<h2>Sign up</h2>
+                <span>or <a href="#">login to your account</a></span>
+            </div>
 	<div class="form_info">
 		<form name="register_form" id="register_form" method="post">
 		<span class="message_reg"></span>
@@ -30,51 +34,58 @@ function sp_registration_validation( $username, $password, $email, $phone_number
 	$reg_errors = new WP_Error;
 	if ( empty( $username ) || empty( $password ) || empty( $email ) || empty( $phone_number ) ) {
 		$reg_errors->add('field', 'Required form field is missing');
-	}else if ( 4 > strlen( $username ) ) {
+	}
+	if ( 4 > strlen( $username ) && !empty( $username ) ) {
 		$reg_errors->add( 'username_length', 'Username too short. At least 4 characters is required' );
 	}
 	
-	else if ( username_exists( $username ) )
+	if ( username_exists( $username ) && !empty( $username ) )
 		$reg_errors->add('user_name', 'Sorry, that username already exists!');
 	
-	else if ( ! validate_username( $username ) ) {
+	if ( ! validate_username( $username ) && !empty( $username ) ) {
 		$reg_errors->add( 'username_invalid', 'Sorry, the username you entered is not valid' );
 	}
 	
-	else if ( 4 > strlen( $password ) ) {
+	if ( 4 > strlen( $password ) && !empty( $password ) ) {
         $reg_errors->add( 'password', 'Password length must be greater than 4' );
     }
 	
-	else if ( !is_email( $email ) ) {
+	if ( !is_email( $email ) && !empty($email) ) {
 		$reg_errors->add( 'email_invalid', 'Email is not valid' );
 	}
 	
-	else if ( email_exists( $email ) ) {
+	if ( email_exists( $email ) && !empty($email) ) {
 		$reg_errors->add( 'email', 'Email Already in use' );
 	}
-
-	if ( is_wp_error( $reg_errors ) ) {
+//print_r($reg_errors->get_error_messages());
+	if ( !empty($reg_errors->get_error_messages()) ) {
 		$i=1;
 		foreach ( $reg_errors->get_error_messages() as $error ) {
 			echo "<span style='color:red;' >&nbsp;".$i.') ';
 			echo $error . ',</span>';
 			$i++;
 		}
+		exit;
 	}
 }
 
 /*Insert User Process */
 function sp_complete_registration() {
+	
     global $reg_errors, $username, $password, $email, $phone_number;
     if ( 1 > count( $reg_errors->get_error_messages() ) ) {
+		
         $userdata = array(
         'user_login'    =>   $username,
         'user_email'    =>   $email,
         'user_pass'     =>   $password,        
         'phone_number'   =>  $phone_number
         );
+		
         $user = wp_insert_user( $userdata );
-        echo '<span style="color:green;>"Registration complete</span>';   
+		if ( ! is_wp_error( $user ) ) {
+			echo '<span style="color:green;">Registration complete</span>';exit; 
+		}
     }
 }
 
@@ -102,7 +113,7 @@ function sp_registration_fn() {
         $phone_number =   sanitize_text_field( $_POST['phone_number'] );
         // call @function complete_registration to create the user
         // only when no WP_error is found
-       // sp_complete_registration( $username, $password, $email,$phone_number);
+        sp_complete_registration( $username, $password, $email,$phone_number);
     } 
 }
 

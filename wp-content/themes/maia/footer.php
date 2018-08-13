@@ -122,6 +122,37 @@
           1000: { items:1, }
         }
       })
+	  
+	  
+
+	$('.userurl').click(function(){
+		$('.register_info').css('display','block');
+		var userurl = $(this).attr('id');
+		if(userurl == 'login' || userurl == 'login2'){
+			$('.loginbx').animate({left: '400px'});
+			$('.userlogbox').css('display','block');		
+			$('.registerbx').css('display','none');
+		}
+		login2
+		if(userurl == 'signup'){
+			$('.registerbx').animate({right: '400px'})
+			$('.userlogbox').css('display','block');
+			$('.loginbx').css('display','none');
+		}
+	});
+	$('.close_btn').click(function(){
+		$('.loginbx').animate({left: '-400px'});
+		$('.register_info').fadeOut();
+		$('.loginbx').removeAttr( 'style' );
+		$('.registerbx').removeAttr( 'style' );
+	});
+	$('.close_btn2').click(function(){
+		$('.registerbx').animate({right: '-400px'});
+		$('.register_info').fadeOut();
+		$('.loginbx').removeAttr( 'style' );
+		$('.registerbx').removeAttr( 'style' );
+	});
+
 });
 </script>
 </body>
