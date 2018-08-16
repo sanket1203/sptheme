@@ -1,30 +1,35 @@
 <?php
 /* Registration design view */
 function sp_registration_form(){ ?>
-			<div class="title_info">
-            	<h2>Sign up</h2>
-                <span>or <a href="#">login to your account</a></span>
-            </div>
-	<div class="form_info">
-		<form name="register_form" id="register_form" method="post">
-		<span class="message_reg"></span>
-		<div class="form_block">
-			 <input type="text" class="field" placeholder="Phone number" name="phone_number" id="phone_number" value="<?php ( isset( $_POST['phone_number']) ? $phone_number : null )?>" >
-			</div>
+<div class="login_info userlogbox signup_info registerbx">
+	<a href="#" class="close_btn2"><i class="fa fa-close"></i></a>
+    <div class="inner">
+		<div class="title_info">
+			<h2>Sign up</h2>
+			<span>or <a href="#">login to your account</a></span>
+		</div>
+		<div class="form_info">
+			<form name="register_form" id="register_form" method="post">
+			<span class="message_reg"></span>
 			<div class="form_block">
-				<input type="text" class="field" placeholder="Name" name="username" value="<?php ( isset( $_POST['username'] ) ? $username : null ) ?>" >
-			</div>
-			 
-			<div class="form_block">
-			<input type="password" class="field" placeholder="Password" name="password" value="<?php ( isset( $_POST['password'] ) ? $password : null ) ?>" >
-			</div>
-			 
-			<div class="form_block">
-			<input type="text" class="field" placeholder="Email" name="email" value="<?php ( isset( $_POST['email']) ? $email : null ) ?>" >
-			</div>			 
-			<input class="register_btn" type="submit" name="submit" value="CONTINUE">
-		</form>
+				 <input type="text" class="field" placeholder="Phone number" name="phone_number" id="phone_number" value="<?php ( isset( $_POST['phone_number']) ? $phone_number : null )?>" >
+				</div>
+				<div class="form_block">
+					<input type="text" class="field" placeholder="Name" name="username" value="<?php ( isset( $_POST['username'] ) ? $username : null ) ?>" >
+				</div>
+				 
+				<div class="form_block">
+				<input type="password" class="field" placeholder="Password" name="password" value="<?php ( isset( $_POST['password'] ) ? $password : null ) ?>" >
+				</div>
+				 
+				<div class="form_block">
+				<input type="text" class="field" placeholder="Email" name="email" value="<?php ( isset( $_POST['email']) ? $email : null ) ?>" >
+				</div>			 
+				<input class="register_btn" type="submit" name="submit" value="CONTINUE">
+			</form>
+		</div>
 	</div>
+</div>
 <?php
 }
 
@@ -70,9 +75,9 @@ function sp_registration_validation( $username, $password, $email, $phone_number
 }
 
 /*Insert User Process */
-function sp_complete_registration() {
+function sp_complete_registration($username, $password, $email, $phone_number) {
 	
-    global $reg_errors, $username, $password, $email, $phone_number;
+    global $reg_errors;
     if ( 1 > count( $reg_errors->get_error_messages() ) ) {
 		
         $userdata = array(
@@ -82,13 +87,22 @@ function sp_complete_registration() {
         'phone_number'   =>  $phone_number
         );
 		
-        $user = wp_insert_user( $userdata );
-		if ( ! is_wp_error( $user ) ) {
+        $user_id = wp_insert_user( $userdata );
+		if ( ! is_wp_error( $user_id ) ) {			
+			$phone = update_user_meta($user_id,'phone_number',$phone_number);
+			sp_registration_email($user_id);
 			echo '<span style="color:green;">Registration complete</span>';exit; 
 		}
     }
 }
 
+function sp_registration_email( $user_id ) {
+    $user    = get_userdata( $user_id );
+    $email   = $user->user_email;
+    $message = $email . ' has registered to your website.';
+    wp_mail( get_option('admin_email'), 'New User registration', $message );
+}
+add_action('user_register', 'sp_registration_email');
 
 
 /*user registration all function call here */
@@ -104,7 +118,6 @@ function sp_registration_fn() {
 			$_POST['phone_number']
         );
 		
-         
         // sanitize user form input
         global $username, $password, $email, $website, $first_name, $last_name, $nickname, $bio;
         $username     =   sanitize_user( $_POST['username'] );
@@ -113,6 +126,7 @@ function sp_registration_fn() {
         $phone_number =   sanitize_text_field( $_POST['phone_number'] );
         // call @function complete_registration to create the user
         // only when no WP_error is found
+		
         sp_complete_registration( $username, $password, $email,$phone_number);
     } 
 }

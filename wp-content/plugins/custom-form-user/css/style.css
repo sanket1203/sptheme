@@ -44,3 +44,4 @@
 input[type="submit"], .register_btn{width:100%; float:left; margin:0 0 10px 0; padding:0 15px; border:none; background:#fc8019; color:#fff; font-size:16px; text-align:center; line-height:50px; font-weight:600; text-transform:uppercase; -webkit-transition: all .6s ease-in-out; -moz-transition: all .6s ease-in-out; -o-transition: all .6s ease-in-out; -ms-transition: all .6s ease-in-out; transition:all .6s ease-in-out;}
 .register_btn:hover{ background:#000; box-shadow: 0 2px 8px #dddddd; color:#fff;}
 .message_reg{float:left;padding-bottom:5px;}
+.login_message_reg{float:left;padding-bottom:5px;}

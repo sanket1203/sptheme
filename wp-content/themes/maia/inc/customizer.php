@@ -14,6 +14,8 @@ function maia_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	
+	$wp_customize->remove_control('custom_logo'); //remove default logo section
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -33,9 +35,11 @@ function maia_customize_register( $wp_customize ) {
     
     $wp_customize->add_panel( 'logo', array (
         'title' => __( 'Logo, Title & Favicon', 'sp_theme' ),
-        'description' => __( 'set the logo image, site title, description and site icon favicon', 'athena' ),
+        'description' => __( 'set the logo image, site title, description and site icon favicon', 'sp_theme' ),
         'priority' => 10
-    ) );
+    ));
+	
+	
     
      $wp_customize->add_section( 'logo', array (
         'title'                 => __( 'Logo', 'sp_theme' ),
@@ -46,6 +50,9 @@ function maia_customize_register( $wp_customize ) {
         'title' => __( 'Site Title, Tagline & Favicon', 'sp_theme' ),
         'panel' => 'logo',
 	 ) );
+	 
+	 
+	 
 	
 	  // Logo Image
     $wp_customize->add_setting( 'logo', array (
@@ -58,7 +65,7 @@ function maia_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'logo_true', array (
         'default'               => 'on',
         'transport'             => 'postMessage',
-        'sanitize_callback'     => 'athena_on_off_sanitize'
+        'sanitize_callback'     => 'sp_on_off_sanitize'
     ) );
 
     $wp_customize->add_control( 'logo_true', array(
@@ -71,7 +78,7 @@ function maia_customize_register( $wp_customize ) {
             'off'    => __( 'Hide', 'sp_theme' )
         )
     ) );
-
+	
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_control4', array (
         'label' =>              __( 'Logo', 'sp_theme' ),
         'section'               => 'logo',
@@ -113,6 +120,9 @@ function maia_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'maia_customize_register' );
 
+function sp_home_val_get($value){
+	 return $value;
+}
 /**
  * Render the site title for the selective refresh partial.
  *
@@ -138,3 +148,11 @@ function maia_customize_preview_js() {
 	wp_enqueue_script( 'maia-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'maia_customize_preview_js' );
+
+/*if user subscriber */
+add_action('after_setup_theme', 'sp_remove_admin_bar'); 
+function sp_remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+	  show_admin_bar(false);
+	}
+}

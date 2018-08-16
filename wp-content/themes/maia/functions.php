@@ -6,6 +6,10 @@
  *
  * @package Maia
  */
+$sptheme_theme_path = get_template_directory() . '/inc/';
+
+require( $sptheme_theme_path . 'sp_customizer.php');
+require( $sptheme_theme_path . 'search_template.php');
 
 if ( ! function_exists( 'maia_setup' ) ) :
 	/**

@@ -11,7 +11,8 @@
  
  global $wpdb;
 
-include "registration.php"; 
+include "sp_registration.php"; 
+include "sp_login.php";
 
 function sp_user_registration() {
 	wp_register_style('style.css', plugin_dir_url(__FILE__) . 'css/style.css');
@@ -26,7 +27,7 @@ function sp_user_registration() {
 }
 add_shortcode( 'user_register', 'sp_user_registration' );
 function sp_user_login(){
-	
+	sp_login_form();
 }
 add_shortcode( 'user_login', 'sp_user_login' );
 

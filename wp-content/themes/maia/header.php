@@ -24,39 +24,12 @@
 
 <body <?php body_class(); ?>>
 
-<!-- Register Info -->
+<?php if ( !is_user_logged_in() ) { ?>
 <div class="register_info">
-	<div class="login_info userlogbox loginbx">
-    	<a href="#" class="close_btn"><i class="fa fa-close"></i></a>
-    	<div class="inner">
-        	<figure><img src="images/login_image.png" alt=""></figure>
-        	<div class="title_info">
-            	<h2>Login</h2>
-                <span>or <a href="#">create an account</a></span>
-            </div>
-            <div class="form_info">
-            	<div class="form_block">
-            		<input type="text" class="field" placeholder="Phone number">
-                </div>
-                <div class="form_block">
-                	<input type="password" class="field field_2" placeholder="Password">
-                    <a href="#" class="forgot_link">forgot?</a>
-                </div>
-                <button class="login_btn">Login</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="login_info userlogbox signup_info registerbx">
-    	<a href="#" class="close_btn2"><i class="fa fa-close"></i></a>
-    	<div class="inner">
-        	<!--<figure><img src="images/login_image.png" alt=""></figure>-->
-        	
-			<?php echo do_shortcode('[user_register]'); ?>
-			
-        </div>
-    </div>
+			<?php echo do_shortcode('[user_login]'); ?>
+			<?php echo do_shortcode('[user_register]'); ?>      
 </div>
+<?php } ?>
 <div class="hidden-xs">
 <div id="wrapper" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'maia' ); ?></a>
@@ -66,34 +39,26 @@
     	<div class="container">
             <!-- Nav Sec -->
             <div class="nav_sec">
+				<?php if ( !is_user_logged_in() ) { ?>
                 <ul class="right_links">
-                    <li><a href="#" class="userurl" id="login">Login</a></li>
-                    <li><a href="#" class="userurl" id="signup">Sign up</a></li>
+                    <li><a href="javascript:void(0);" class="userurl" id="login" title="Login">Login</a></li>
+                    <li><a href="javascript:void(0);" class="userurl" id="signup" title="SIgn Up">Sign Up</a></li>
                 </ul>
-                
-                <!-- Logo -->
-                <div class="logo"><a href="#"><img src="<?php echo get_theme_mod( 'logo', get_template_directory_uri() . '/inc/images/default-logo.png' ) ?>" alt=""></a></div>
+				<?php } ?>
+                <div class="logo"><a href="<?php echo home_url(); ?>" title="<?php echo bloginfo('name'); ?>" ><img src="<?php echo get_theme_mod( 'logo', get_template_directory_uri() . '/inc/images/default-logo.png' ) ?>" alt=""></a></div>
             </div>
             
             <!-- Location Block -->
             <div class="location_block">
-                <h2>Late night at office?</h2>
-                <p>Order food from favourite restaurants near you.</p>
+                <?php $home_heading = get_theme_mod('top_heading_home');
+					  $home_text_sub = get_theme_mod('top_heading_home_sub');
+					  $search_setting = get_theme_mod('bool_search_setting');
+					  	
+				if(!empty($home_heading)){?><h2> <?php echo $home_heading; ?></h2><?php } ?>
+                <?php if(!empty($home_text_sub)){?><p><?php echo $home_text_sub; ?></p><?php } ?>
                 
                 <!-- Search Info -->
-                <div class="search_info">
-                	<div class="inner">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search for...">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default location_btn" type="button"><i class="fa fa-location-arrow"></i> Locate Me</button>
-                          </span>
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">FIND FOOD</button>
-                          </span>
-                        </div>
-                    </div>
-                </div>
+                <?php if($search_setting === 'on_search'){ echo do_shortcode('[search_view_enable]'); } ?>
                 
                 <!-- city Name -->
                 <ul class="city_name">
