@@ -1,7 +1,7 @@
 <?php
 /**
  * The header for our theme
- * @package Maia
+ * @package Sptheme
  */
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
@@ -18,6 +18,11 @@
 	<link href="<?php echo get_template_directory_uri().'/css/owl.carousel.css'?>" rel="stylesheet">
 	<?php wp_head(); ?>
 	<script>var ajax_url= '<?php echo admin_url('admin-ajax.php'); ?>';</script>
+	<?php $footer_link_color = get_theme_mod('googleplus_social_media','#fff'); ?>
+	<style>
+		.footer_sec a{color:<?php echo $footer_link_color;?>;}
+	</style>
+	
 	
 	
 </head>
@@ -33,50 +38,9 @@
 <div class="hidden-xs">
 <div id="wrapper" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'maia' ); ?></a>
-
 	<header>
-		<div class="top_part">
-    	<div class="container">
-            <!-- Nav Sec -->
-            <div class="nav_sec">
-				<?php if ( !is_user_logged_in() ) { ?>
-                <ul class="right_links">
-                    <li><a href="javascript:void(0);" class="userurl" id="login" title="Login">Login</a></li>
-                    <li><a href="javascript:void(0);" class="userurl" id="signup" title="SIgn Up">Sign Up</a></li>
-                </ul>
-				<?php } ?>
-                <div class="logo"><a href="<?php echo home_url(); ?>" title="<?php echo bloginfo('name'); ?>" ><img src="<?php echo get_theme_mod( 'logo', get_template_directory_uri() . '/inc/images/default-logo.png' ) ?>" alt=""></a></div>
-            </div>
-            
-            <!-- Location Block -->
-            <div class="location_block">
-                <?php $home_heading = get_theme_mod('top_heading_home');
-					  $home_text_sub = get_theme_mod('top_heading_home_sub');
-					  $search_setting = get_theme_mod('bool_search_setting');
-					  	
-				if(!empty($home_heading)){?><h2> <?php echo $home_heading; ?></h2><?php } ?>
-                <?php if(!empty($home_text_sub)){?><p><?php echo $home_text_sub; ?></p><?php } ?>
-                
-                <!-- Search Info -->
-                <?php if($search_setting === 'on_search'){ echo do_shortcode('[search_view_enable]'); } ?>
-                
-                <!-- city Name -->
-                <ul class="city_name">
-                    <li><a href="#">Ahmedabad</a></li>
-                    <li><a href="#">Bangalore</a></li>
-                    <li><a href="#">Delhi</a></li>
-                    <li><a href="#">Kolkata</a></li>
-                    <li><a href="#">Noida</a></li>
-                    <li><a href="#">Pune</a></li>
-                    <li><a href="#">Surat</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-		
+		<!-- header area -->
+		<?php echo do_shortcode('[header_part]'); ?>		
 	</header><!-- #masthead -->
-<script>
 
-</script>	
-	
-	<div id="content" class="site-content">
+<div id="content" class="site-content">

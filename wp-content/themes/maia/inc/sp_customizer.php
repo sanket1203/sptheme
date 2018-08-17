@@ -5,9 +5,9 @@ function sptheme_custom_customizer($wp_customize){
 			'panel' => 'logo',
 		 ) );
 	 
-	 // add section to manage Services
+	    // add section to manage header text
 		$wp_customize->add_section('sptheme_service_section_settings', array(
-			'title' => __('Custom Text Home','financeup'),
+			'title' => __('Custom Text Home','sp_theme'),
 			'description' => '',
 			'panel'  => 'logo',
 		) );
@@ -20,7 +20,7 @@ function sptheme_custom_customizer($wp_customize){
         ) );	
 		$wp_customize->add_control( 
 			'top_heading_home',array(
-			'label'   => __('Title','financeup'),
+			'label'   => __('Title','sp_theme'),
 			'section' => 'sptheme_service_section_settings',
 			'type' => 'text',
 		) );
@@ -29,9 +29,10 @@ function sptheme_custom_customizer($wp_customize){
 			'capability'     => 'edit_theme_options',
 			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
 			'transport' => 'postMessage',
-        ) );	
+        ) );
+		
 		$wp_customize->add_control('top_heading_home_sub',array(
-			'label'   => __('Sub Text','financeup'),
+			'label'   => __('Sub Text','sp_theme'),
 			'section' => 'sptheme_service_section_settings',
 			'type' => 'text',
 		) );
@@ -45,7 +46,8 @@ function sptheme_custom_customizer($wp_customize){
 		//adding setting for footer text area
 		$wp_customize->add_setting('bool_search_setting', array(
 		 'default'        => 'on_search',		//Default on search
-		 ));
+		));
+
 		$wp_customize->add_control('bool_search_setting', array(
 		  'label'   => 'Search Option',
 		  'section' => 'search_option',
@@ -56,9 +58,180 @@ function sptheme_custom_customizer($wp_customize){
 			)
 		));
 		
+		// Header Background
+		$wp_customize->add_section( 'header_section' , array(
+			'title'      => 'Header Setting',
+			'priority'   => 30,
+		) );
+		
+		// background image
+		$wp_customize->add_setting('home_background', array(
+			'transport'   => 'refresh',
+			'sanitize_callback' => 'sptheme_sanitize_image',
+		));		
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'home_background', array (
+			'label' =>              __( 'Header Background', 'sp_theme' ),
+			'section'               => 'header_section',
+			'mime_type'             => 'image',
+			'settings'              => 'home_background',
+			'description'           => __( 'Header Image, If image not available then background color display', 'sp_theme' ),
+		) ) );
+		
+		//background color
+		$wp_customize->add_setting( 'header_background_color' , array(
+			'default'     => '#312720',
+			'transport'   => 'refresh'		
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
+			'label'      => 'Header Background Color',
+			'section'    => 'header_section',
+			'settings'   => 'header_background_color',			
+		) ) );
+		
+		//Footer Setting
+		$wp_customize->add_section('footer_section',array(
+			'title'		=> 'Footer Setting',
+			'description' => __( 'Footer Copyright Text', 'sp_theme' ),
+		));
+		
+		$wp_customize->add_setting('footer_copyright',array(
+			'default'	=> date('Y').' SP-THEME, All Right Reserved.',
+		));
+		$wp_customize->add_control('footer_copyright',array(
+			'label'   => __('Copyright Text','sp_theme'),
+			'section' => 'footer_section',
+			'type' => 'text',
+		));
+		
+		// General setting
+		$wp_customize->add_panel( 'sp_general_section', array (
+			'title' => __( 'General Setting', 'sp_theme' ),
+			'description' => __( 'set the logo image, site title, description and site icon favicon', 'sp_theme' ),
+			'priority' => 40
+		));
+		
+		//Social media url box start
+		$wp_customize->add_section('sp_font_typography_section',array(
+			'title'		=> 'Footer Link Color',
+			'panel'       => 'sp_general_section',
+			'description' => __( 'Social Media URL', 'sp_theme' ),			
+		));
+		$wp_customize->add_setting('footer_link_color', array(
+			'default' 		=> '#fff', 
+			'capability'     => 'edit_theme_options',
+        ) );	
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_link_color', array(
+			'label'      => 'Footer Link Color',
+			'section'    => 'sp_font_typography_section',
+			'settings'   => 'footer_link_color',			
+		) ) );
+		
+		//Social media url box start
+		$wp_customize->add_section('sp_social_url_section',array(
+			'title'		=> 'Social Media Url',
+			'panel'       => 'sp_general_section',
+			'description' => __( 'Social Media URL', 'sp_theme' ),			
+		));
+		
+		$wp_customize->add_setting('fb_social_media', array(
+			'capability'     => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );	
+		$wp_customize->add_control('fb_social_media',array(
+			'label'   => __('Facebook URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+		
+		$wp_customize->add_setting('twitter_social_media', array(
+			'capability'     => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );
+		
+		$wp_customize->add_control('twitter_social_media',array(
+			'label'   => __('Twitter URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+		
+		$wp_customize->add_setting('instagram_social_media', array(
+			'capability'     => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );
+		
+		$wp_customize->add_control('instagram_social_media',array(
+			'label'   => __('Instagram URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+				
+		$wp_customize->add_setting('linkedin_social_media', array(
+			'capability'     => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );
+		
+		$wp_customize->add_control('linkedin_social_media',array(
+			'label'   => __('LinkedIn URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+		
+		$wp_customize->add_setting('pinterest_social_media', array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );
+		
+		$wp_customize->add_control('pinterest_social_media',array(
+			'label'   => __('Pinterest URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+		
+		
+		$wp_customize->add_setting('googleplus_social_media', array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sptheme_homepage_sanitize_text',
+			'transport' => 'postMessage',
+        ) );
+		
+		$wp_customize->add_control('googleplus_social_media',array(
+			'label'   => __('Google+ URL','sp_theme'),
+			'section' => 'sp_social_url_section',
+			'type' => 'text',
+		) );
+		
+			
+		
+		
 		function sptheme_homepage_sanitize_text( $input ) {
-
 			return wp_kses_post( force_balance_tags( $input ) );	
+		}
+		
+			
+		function sptheme_sanitize_image( $image, $setting ) {
+			/*
+			 * Valid image file types.
+			 * The array includes image mime types that are included in wp_get_mime_types()
+			 */
+			$mimes = array(
+				'jpg|jpeg|jpe' => 'image/jpeg',
+				'gif'          => 'image/gif',
+				'png'          => 'image/png',
+				'bmp'          => 'image/bmp',
+				'tif|tiff'     => 'image/tiff',
+				'ico'          => 'image/x-icon'
+			);
+			// Return an array with file extension and mime_type.
+			$file = wp_check_filetype( $image, $mimes );
+			// If $image has a valid mime_type, return it; otherwise, return the default.
+			return ( $file['ext'] ? $image : $setting->default );
 		}
 	 
 }

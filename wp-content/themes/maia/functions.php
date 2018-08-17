@@ -6,10 +6,15 @@
  *
  * @package Maia
  */
-$sptheme_theme_path = get_template_directory() . '/inc/';
 
-require( $sptheme_theme_path . 'sp_customizer.php');
-require( $sptheme_theme_path . 'search_template.php');
+$sptheme_theme_path = get_template_directory();
+
+require( $sptheme_theme_path . '/inc/sp_customizer.php');
+require( $sptheme_theme_path . '/include/header-template.php');
+require( $sptheme_theme_path . '/include/search-template.php');
+require( $sptheme_theme_path . '/include/footer-template.php');
+require( $sptheme_theme_path . '/include/sp_widget.php');
+
 
 if ( ! function_exists( 'maia_setup' ) ) :
 	/**
