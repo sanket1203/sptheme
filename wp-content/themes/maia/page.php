@@ -13,11 +13,23 @@
  */
 
 get_header();
+$head_overlay      = get_post_meta(get_the_ID(),'header_overlaybool',true);
+$head_banner_ID    = get_post_meta(get_the_ID(),'head_banner_image',true);
+$head_image 	   = get_the_guid($head_banner_ID);
+if(!empty($head_banner_ID)){
 ?>
+<div class="inner_banner" style="background:url('<?php echo $head_image;?>') no-repeat center center;background-size:cover;">
+	<?php if($head_overlay){ ?>
+		<div class="overlay_bg"></div>
+	<?php }?>
+	<div class="container">
+    	<h1><?php the_title(); ?></h1>
+    </div>
+</div>
+<?php } ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
+<div id="primary" class="typography_info">
+	<div class="container">	
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -32,9 +44,9 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</div><!-- #container -->
+</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

@@ -17,6 +17,7 @@ function maia_customize_register( $wp_customize ) {
 	
 	$wp_customize->remove_control('custom_logo'); //remove default logo section
 	$wp_customize->remove_section('colors'); //remove default color section
+	$wp_customize->remove_section('background_image'); //remove default color section
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -40,10 +41,7 @@ function maia_customize_register( $wp_customize ) {
         'priority' => 10
     ));
 	
-    $wp_customize->add_section( 'logo', array (
-        'title'                 => __( 'Logo', 'sp_theme' ),
-        'panel'                 => 'logo',
-     ) );
+   
 	
 	$wp_customize->add_section( 'title_tagline', array (
         'title' => __( 'Site Title, Tagline & Favicon', 'sp_theme' ),
@@ -51,22 +49,7 @@ function maia_customize_register( $wp_customize ) {
 	 ) );
 	 
 	
-	  // Logo Image
-    $wp_customize->add_setting( 'logo', array (
-        'default'               => get_template_directory_uri() . '/inc/images/default-logo.png',
-        'transport'             => 'postMessage',
-        'sanitize_callback'     => 'esc_url_raw'
-    ) );
-	
-	
-	
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_control4', array (
-        'label' =>              __( 'Logo', 'sp_theme' ),
-        'section'               => 'logo',
-        'mime_type'             => 'image',
-        'settings'              => 'logo',
-        'description'           => __( 'Logo for your site', 'sp_theme' ),        
-    ) ) );
+	 
 	
 
 }

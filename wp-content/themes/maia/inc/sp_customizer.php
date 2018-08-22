@@ -1,5 +1,40 @@
 <?php
 function sptheme_custom_customizer($wp_customize){
+	
+		$wp_customize->add_section( 'logo', array (
+			'title'                 => __( 'Logo', 'sp_theme' ),
+			'panel'                 => 'logo',
+		));
+		 
+		  // Logo Image
+		$wp_customize->add_setting( 'logo', array (
+			'default'               => get_template_directory_uri() . '/inc/images/default-logo.png',
+			'transport'             => 'postMessage',
+			'sanitize_callback'     => 'esc_url_raw'
+		));
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_control4', array (
+			'label' =>              __( 'Home Page Logo', 'sp_theme' ),
+			'section'               => 'logo',
+			'mime_type'             => 'image',
+			'settings'              => 'logo',
+			'description'           => __( 'Logo for your site', 'sp_theme' ),        
+		)));
+		
+		$wp_customize->add_setting( 'logo_other_page', array (
+			'default'               => get_template_directory_uri() . '/images/default-logo-black.png',
+			'transport'             => 'postMessage',
+			'sanitize_callback'     => 'esc_url_raw'
+		));
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo_other_page', array (
+			'label' =>              __( 'Other Page Logo', 'sp_theme' ),
+			'section'               => 'logo',
+			'mime_type'             => 'image',
+			'settings'              => 'logo',
+			'description'           => __( 'Logo for your site', 'sp_theme' ),        
+		)));
+		
 		$wp_customize->add_section( 'top_heading_home', array (
 			'title' => __( 'Custom Home Heading', 'sp_theme' ),
 			'panel' => 'logo',
@@ -111,22 +146,46 @@ function sptheme_custom_customizer($wp_customize){
 			'priority' => 40
 		));
 		
-		//Social media url box start
+		//Footer color
 		$wp_customize->add_section('sp_font_typography_section',array(
-			'title'		=> 'Footer Link Color',
+			'title'		=> 'Footer Text & Background Color',
 			'panel'       => 'sp_general_section',
-			'description' => __( 'Social Media URL', 'sp_theme' ),			
+			'description' => __( 'Footer Text & Background color', 'sp_theme' ),			
 		));
+		
+		// Footer heading color
+		$wp_customize->add_setting('footer_font_color', array(
+			'default' 		=> '#fff', 
+			'capability'     => 'edit_theme_options',
+        ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_font_color', array(
+			'label'      => 'Footer Font Color',
+			'section'    => 'sp_font_typography_section',
+			'settings'   => 'footer_font_color',			
+		) ) );
+		
+		// link color
 		$wp_customize->add_setting('footer_link_color', array(
 			'default' 		=> '#fff', 
 			'capability'     => 'edit_theme_options',
-        ) );	
-		
+        ) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_link_color', array(
 			'label'      => 'Footer Link Color',
 			'section'    => 'sp_font_typography_section',
 			'settings'   => 'footer_link_color',			
 		) ) );
+		
+		// Footer heading color
+		$wp_customize->add_setting('footer_heading_color', array(
+			'default' 		=> '#fff', 
+			'capability'     => 'edit_theme_options',
+        ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_heading_color', array(
+			'label'      => 'Footer Heading Color',
+			'section'    => 'sp_font_typography_section',
+			'settings'   => 'footer_heading_color',			
+		) ) );
+		
 		
 		//Social media url box start
 		$wp_customize->add_section('sp_social_url_section',array(
@@ -205,7 +264,7 @@ function sptheme_custom_customizer($wp_customize){
 			'label'   => __('Google+ URL','sp_theme'),
 			'section' => 'sp_social_url_section',
 			'type' => 'text',
-		) );
+		));
 		
 			
 		

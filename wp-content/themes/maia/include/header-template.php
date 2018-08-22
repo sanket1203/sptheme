@@ -20,10 +20,10 @@ function sp_header_area(){
 			<?php if ( !is_user_logged_in() ) { ?>
 			<ul class="right_links">
 				<li><a href="javascript:void(0);" class="userurl" id="login" title="Login">Login</a></li>
-				<li><a href="javascript:void(0);" class="userurl" id="signup" title="SIgn Up">Sign Up</a></li>
+				<li><a href="javascript:void(0);" class="userurl" id="signup" title="Sign Up">Sign Up</a></li>
 			</ul>
 			<?php } ?>
-			<div class="logo"><a href="<?php echo home_url(); ?>" title="<?php echo bloginfo('name'); ?>" ><img src="<?php echo get_theme_mod( 'logo', get_template_directory_uri() . '/inc/images/default-logo.png' ) ?>" alt=""></a></div>
+			<div class="logo"><a href="<?php echo home_url(); ?>" title="<?php echo bloginfo('name'); ?>" ><img src="<?php echo get_theme_mod( 'logo', get_template_directory_uri() . '/inc/images/default-logo.png' ) ?>" alt="<?php echo bloginfo('name'); ?>"></a></div>
 		</div>
 		
 		<!-- Location Block -->

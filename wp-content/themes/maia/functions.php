@@ -1,10 +1,10 @@
 <?php
 /**
- * Maia functions and definitions
+ * Sptheme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Maia
+ * @package Sptheme
  */
 
 $sptheme_theme_path = get_template_directory();
@@ -13,10 +13,11 @@ require( $sptheme_theme_path . '/inc/sp_customizer.php');
 require( $sptheme_theme_path . '/include/header-template.php');
 require( $sptheme_theme_path . '/include/search-template.php');
 require( $sptheme_theme_path . '/include/footer-template.php');
-require( $sptheme_theme_path . '/include/sp_widget.php');
+require( $sptheme_theme_path . '/include/admin/sp_widget.php');
+require( $sptheme_theme_path . '/include/admin/sp_meta.php');
 
 
-if ( ! function_exists( 'maia_setup' ) ) :
+if ( ! function_exists( 'sptheme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -24,7 +25,7 @@ if ( ! function_exists( 'maia_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function maia_setup() {
+	function sptheme_setup() {
 		
 		if( !defined( 'MAIATHEME_VERSION' ) ) :
             define('MAIATHEME_VERSION', '1.0.0');
@@ -97,7 +98,7 @@ if ( ! function_exists( 'maia_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'maia_setup' );
+add_action( 'after_setup_theme', 'sptheme_setup' );
 
 
 add_action( 'wp_head', 'cd_customizer_css');

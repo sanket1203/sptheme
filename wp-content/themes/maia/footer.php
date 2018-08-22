@@ -14,6 +14,7 @@
 	</div><!-- #content -->
 
 	<footer><?php echo do_shortcode('[footer_part]'); ?></footer>
+ </div>	
 </div><!-- #page -->
 </div> <!-- hidden mobile -->
 <div class="hidden-lg hidden-md hidden-sm">
@@ -97,6 +98,34 @@
 		$('.loginbx').removeAttr( 'style' );
 		$('.registerbx').removeAttr( 'style' );
 	});
+	
+	
+	 var trigger = $('.hamburger'),
+		  overlay = $('.overlay'),
+		 isClosed = false;
+
+		trigger.click(function () {
+		  hamburger_cross();      
+		});
+
+		function hamburger_cross() {
+
+		  if (isClosed == true) {          
+			overlay.hide();
+			trigger.removeClass('is-open');
+			trigger.addClass('is-closed');
+			isClosed = false;
+		  } else {   
+			overlay.show();
+			trigger.removeClass('is-closed');
+			trigger.addClass('is-open');
+			isClosed = true;
+		  }
+	  }
+	  
+	  $('[data-toggle="offcanvas"]').click(function () {
+			$('#wrapper').toggleClass('toggled');
+	  });
 
 });
 </script>
