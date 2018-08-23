@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home 1
+ * Template Name: Home one
  * @package Sp_theme
  */
 get_header();

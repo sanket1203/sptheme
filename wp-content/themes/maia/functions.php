@@ -8,6 +8,7 @@
  */
 
 $sptheme_theme_path = get_template_directory();
+define('Template_path',get_template_directory_uri());
 
 require( $sptheme_theme_path . '/inc/sp_customizer.php');
 require( $sptheme_theme_path . '/include/header-template.php');

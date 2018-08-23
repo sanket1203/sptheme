@@ -19,6 +19,12 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+section {width: 100%;float: left;margin: 0px;padding: 0px;}
+.service_sec{ width:100%; float:left; margin:0; padding:50px 0; background:#ebebeb;}
+.service_sec .block{ width:100%; float:left; margin:0 0 30px 0; padding:0 50px; text-align:center;}
+.service_sec figure{ width:100%; float:left; margin:0 0 40px 0; padding:0;}
+.service_sec h3{ margin:0 0 18px 0; padding:0; font-size:20px; font-weight:600; color:#333;}
+.service_sec p{ margin:0; padding:0; font-size:15px; color:#666666;}
 
 .main_navigation{ width:100%; float:left; padding:10px 0 0 0; margin:0;}
 .main_navigation .navbar-default{ border:none; background:none; margin:0; min-height:inherit;}
@@ -38,16 +44,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .main_navigation .dropdown-menu > li > a:hover, .main_navigation .dropdown-menu > li > a:focus{ background:#fc8019; color:#fff;}
 
 .inner_banner{ width:100%; float:left; padding:100px 0; margin:0; position:relative; text-align:center;background-size:cover;}
-.inner_banner .overlay_bg{ width:100%; height:100%; float:left; position:absolute; left:0; top:0; background:rgba(0,0,0,0.7);}
+.inner_banner .overlay_bg{ width:100%; height:100%; float:left; position:absolute; left:0; top:0; background:rgba(0,0,0,0.5);}
 .inner_banner h1{ padding:0; margin:0; font-size:35px; color:#fff; font-weight:300; position:relative; z-index:5;}
-
-
 .typography_info{ width:100%; float:left; margin:0; padding:60px 0;}
-.typography_info h2{ margin:0 0 11px 0; padding:0; font-size:40px; color:#153346; font-weight:700;}
-.typography_info h3{ margin:0 0 8px 0; padding:0; font-size:36px; font-weight:700; color:#153346;}
-.typography_info h4{ margin:0 0 10px 0; padding:0; font-size:30px; font-weight:700; color:#153346;}
-.typography_info h5{ margin:0 0 6px 0; padding:0; font-size:24px; font-weight:700; color:#153346;}
-.typography_info h6{ margin:0 0 14px 0; padding:0; font-size:21px; font-weight:700; color:#153346;}
+.typography_info h2{ margin:0 0 11px 0; padding:0; font-size:34px; color:#153346; font-weight:700;}
+.typography_info h3{ margin:0 0 8px 0; padding:0; font-size:27px; font-weight:700; color:#153346;}
+.typography_info h4{ margin:0 0 10px 0; padding:0; font-size:22px; font-weight:700; color:#153346;}
+.typography_info h5{ margin:0 0 6px 0; padding:0; font-size:18px; font-weight:700; color:#153346;}
+.typography_info h6{ margin:0 0 14px 0; padding:0; font-size:16px; font-weight:700; color:#153346;}
 
 .typography_info p{ margin:0 0 30px 0; padding:0; font-size:16px; line-height:28px;}
 .typography_info ul{ margin:0 0 40px 0; padding:0;}
@@ -119,8 +123,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 .hamburger.is-open:before { content: ''; display: block; width: 100px; font-size: 14px; color: #fff; line-height: 32px; text-align: center; opacity: 0; -webkit-transform: translate3d(0, 0, 0); -webkit-transition: all .35s ease-in-out;
 }
-.hamburger.is-open:hover:before { opacity: 1; display: block; -webkit-transform: translate3d(-100px, 0, 0); -webkit-transition: all .35s ease-in-out;
-}
+.hamburger.is-open:hover:before {opacity: 1; display: block; -webkit-transform: translate3d(-100px, 0, 0); -webkit-transition: all .35s ease-in-out;}
 .overlay { position: fixed; display: none; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(250, 250, 250, .8); z-index: 1; }
 
 .post-edit-link{margin: 0 0 6px 0;padding: 0;font-size: 24px;font-weight: 700;color: #fc8019;}
@@ -129,3 +132,17 @@ img.alignright{float:right;padding-left:10px;}
 img.aligncenter{float:none;padding:0 10px;text-align:center;margin:0 auto;}
 .not-found_404{color: #EC7611;font-size: 170px;line-height: 1;font-weight: 700;}
 input[type="submit"]{width:auto;border-radius:10px; float:left; margin:0 0 10px 0; padding:0 15px; border:none; background:#fc8019; color:#fff; font-size:16px; text-align:center; line-height:50px; font-weight:600; text-transform:uppercase; -webkit-transition: all .6s ease-in-out; -moz-transition: all .6s ease-in-out; -o-transition: all .6s ease-in-out; -ms-transition: all .6s ease-in-out; transition:all .6s ease-in-out;}
+.btn {padding: 10px 36px;margin: 0px;box-shadow: none;border-radius: 0;}
+.btn.btn-large {padding: 15px 60px;}
+.btn.btn-medium {padding: 10px 30px;}
+.btn.btn-small {padding: 8px 18px;}
+.btn.btn-small-2 {padding: 4px 18px;}
+.contactpage i{font-size:18px;}
+.contactpage p{margin:0 0 10px 0;}
+.contactpage label{display:block;}
+.wpcf7-text{background-color: #fff;border: 1px solid #c5c4c4;font-size:16px;font-weight:normal;color: #323335;float: left;height: 45px;margin-bottom: 15px;padding: 8px;transition: all 0.3s ease-out 0s;width: 100%;}
+.wpcf7-textarea{background-color: #fff;border: 1px solid #c5c4c4;color: #323335;float: left;height: 80px;margin-bottom: 15px;padding: 8px;transition: all 0.3s ease-out 0s;width: 100%;}
+.map {width: 100%;height: 300px;border: 1px solid #e4e4e4;}
+.gmaps-holder-2 .map {height: 500px;border: none;}
+.gmaps-holder-2 {width: 100%;}
+.nopadding {padding: 0 !important;margin: 0 !important;}

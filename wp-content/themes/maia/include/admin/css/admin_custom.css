@@ -1,0 +1,4 @@
+.admin_input{background:#fff;padding:10px;position: relative;vertical-align:top;border: 1px solid #efefef;display: -moz-inline-stack;display: inline-block;color: #626262;outline: none;height: 42px;width: 100%;}
+.admin_input.largebox{width:80%;}
+.admin_input.smallbox{width:50%;}
+.admin_input.smallbox-2{width:30%;}

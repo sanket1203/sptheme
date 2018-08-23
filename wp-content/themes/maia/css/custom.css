@@ -45,17 +45,6 @@ ul.city_name li{ margin:0 8px 8px 0; padding:0; display:inline-block; font-size:
 ul.city_name li a{ color:#fff;}
 ul.city_name li a:hover{ color:#fc8019;}
 
-/***********  Section Part  ************/
-
-section{ width:100%; float:left; margin:0px; padding:0px;}
-
-/********** Service Sec **********/
-.service_sec{ width:100%; float:left; margin:0; padding:50px 0; background:#ebebeb;}
-.service_sec .block{ width:100%; float:left; margin:0 0 30px 0; padding:0 50px; text-align:center;}
-.service_sec figure{ width:100%; float:left; margin:0 0 40px 0; padding:0;}
-.service_sec h3{ margin:0 0 18px 0; padding:0; font-size:20px; font-weight:600; color:#333;}
-.service_sec p{ margin:0; padding:0; font-size:15px; color:#666666;}
-
 /*********** Pocket ************/
 .pocket_sec{ width:100%; float:left; margin:0; padding:60px 0;}
 .pocket_sec .left{ width:100%; float:left; margin:0; padding:80px 50px 0 0;}

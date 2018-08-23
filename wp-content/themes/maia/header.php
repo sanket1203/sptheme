@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/font-awesome.css' ?>" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri().'/css/owl.carousel.css'?>" rel="stylesheet">
 	<?php wp_head(); ?>
+	<script src="<?php echo get_template_directory_uri(''); ?>/js/jquery.min.js"></script>
 	<script>var ajax_url= '<?php echo admin_url('admin-ajax.php'); ?>';</script>
 	<?php
 		$footer_font_color = get_theme_mod('footer_font_color','#fff');	
