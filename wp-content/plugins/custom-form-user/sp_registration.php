@@ -1,4 +1,5 @@
 <?php
+
 /* Registration design view */
 function sp_registration_form(){ ?>
 <div class="login_info userlogbox signup_info registerbx">
@@ -62,8 +63,9 @@ function sp_registration_validation( $username, $password, $email, $phone_number
 	if ( email_exists( $email ) && !empty($email) ) {
 		$reg_errors->add( 'email', 'Email Already in use' );
 	}
-//print_r($reg_errors->get_error_messages());
-	if ( !empty($reg_errors->get_error_messages()) ) {
+
+
+	if ( is_wp_error( $reg_errors ) ) {
 		$i=1;
 		foreach ( $reg_errors->get_error_messages() as $error ) {
 			echo "<span style='color:red;' >&nbsp;".$i.') ';

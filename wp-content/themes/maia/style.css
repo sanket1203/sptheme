@@ -43,8 +43,8 @@ section {width: 100%;float: left;margin: 0px;padding: 0px;}
 .main_navigation .dropdown-menu > li > a{ padding:5px 10px; font-size:14px;color:#000;}
 .main_navigation .dropdown-menu > li > a:hover, .main_navigation .dropdown-menu > li > a:focus{ background:#fc8019; color:#fff;}
 
-.inner_banner{ width:100%; float:left; padding:100px 0; margin:0; position:relative; text-align:center;background-size:cover;}
-.inner_banner .overlay_bg{ width:100%; height:100%; float:left; position:absolute; left:0; top:0; background:rgba(0,0,0,0.5);}
+.inner_banner{ width:100%; float:left; padding:140px 0; margin:0; position:relative; text-align:center;background-size:cover;}
+.inner_banner .overlay_bg{ width:100%; height:100%; float:left; position:absolute; left:0; top:0; background:rgba(0,0,0,0.6);}
 .inner_banner h1{ padding:0; margin:0; font-size:35px; color:#fff; font-weight:300; position:relative; z-index:5;}
 .typography_info{ width:100%; float:left; margin:0; padding:60px 0;}
 .typography_info h2{ margin:0 0 11px 0; padding:0; font-size:34px; color:#153346; font-weight:700;}
@@ -137,12 +137,27 @@ input[type="submit"]{width:auto;border-radius:10px; float:left; margin:0 0 10px 
 .btn.btn-medium {padding: 10px 30px;}
 .btn.btn-small {padding: 8px 18px;}
 .btn.btn-small-2 {padding: 4px 18px;}
+.woocommerce .woocommerce-ordering select{width: 100%;text-transform: none;padding: 8px;height: 40px;}
+.woocommerce .woocommerce-ordering select {padding:10px;margin: 0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;-moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;border:1px solid #000;;outline:none;display: inline-block;-moz-appearance:none;cursor:pointer;}
+.woocommerce a.btn{border-radius:6px;text-transform: uppercase;border: 2px solid #f5f5f5;font-size: 14px;padding: 10px 20px;color: #fff;box-shadow: none;display: inline-block;margin: 5px;transition: all 0.3s ease-out 0s;touch-action: manipulation;background-color:#fc8019;}
+.woocommerce a.btn:hover{background-color:#000;color:#fff;}
+.woocommerce ul.products li.product .woocommerce-loop-product__title{font-size:18px;line-height:23px;color:#000;}
+.woocommerce ul.products li.product .woocommerce-loop-product__title:hover{text-decoration:underline;}
+.woocommerce ul.products li.product .price{font-size:16px;color:#000;line-height:18px;}
+.woocommerce div.product form.cart .button{border-radius:6px;text-transform: uppercase;border: 2px solid #f5f5f5;font-size: 14px;padding: 10px 20px;color: #fff;box-shadow: none;display: inline-block;margin: 5px;transition: all 0.3s ease-out 0s;touch-action: manipulation;background-color:#fc8019;}
+.woocommerce div.product form.cart .button:hover{background-color:#000;color:#fff;}
+.woocommerce .quantity .qty{height:40px;}
 .contactpage i{font-size:18px;}
 .contactpage p{margin:0 0 10px 0;}
 .contactpage label{display:block;}
 .wpcf7-text{background-color: #fff;border: 1px solid #c5c4c4;font-size:16px;font-weight:normal;color: #323335;float: left;height: 45px;margin-bottom: 15px;padding: 8px;transition: all 0.3s ease-out 0s;width: 100%;}
 .wpcf7-textarea{background-color: #fff;border: 1px solid #c5c4c4;color: #323335;float: left;height: 80px;margin-bottom: 15px;padding: 8px;transition: all 0.3s ease-out 0s;width: 100%;}
+.wpcf7-select{width: 100%;text-transform: none;padding:8px;height: 40px;}
+.wpcf7-radio{min-height: 20px;margin-bottom: 0;font-weight: 400;cursor: pointer;}
+
 .map {width: 100%;height: 300px;border: 1px solid #e4e4e4;}
 .gmaps-holder-2 .map {height: 500px;border: none;}
 .gmaps-holder-2 {width: 100%;}
 .nopadding {padding: 0 !important;margin: 0 !important;}
+.woocommerce nav.woocommerce-pagination ul li{padding:10px;}
+.woocommerce-single_info{ width:100%; float:left; margin:0; padding:60px 0;}

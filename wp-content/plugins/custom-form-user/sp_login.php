@@ -1,4 +1,5 @@
 <?php
+
 global $wpdb;
 /* Registration design view */
 function sp_login_form(){ ?>
@@ -29,13 +30,13 @@ function sp_login_form(){ ?>
 
 /* Add validation */
 function sp_login_validation( $username, $password )  {
-	global $reg_errors;
+//	global $reg_errors;
 	$reg_errors = new WP_Error;
 	if ( empty( $username ) || empty( $password ) ) {
 		$reg_errors->add('field', 'Required form field is missing');
 	}
 
-	if ( !empty($reg_errors->get_error_messages()) ) {
+	if ( $reg_errors->get_error_messages() ) {
 		$i=1;
 		foreach ( $reg_errors->get_error_messages() as $error ) {
 			echo "<span style='color:red;' >&nbsp;".$i.') ';

@@ -9,13 +9,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Maia
+ * @package Sptheme
  */
 
 get_header();
 $head_overlay      = get_post_meta(get_the_ID(),'header_overlaybool',true);
 $head_banner_ID    = get_post_meta(get_the_ID(),'head_banner_image',true);
 $head_image 	   = get_the_guid($head_banner_ID);
+$pagename 		   = get_the_title(); 
 if(!empty($head_banner_ID)){
 ?>
 <div class="inner_banner" style="background:url('<?php echo $head_image;?>') no-repeat center center;background-size:cover;">
@@ -28,7 +29,7 @@ if(!empty($head_banner_ID)){
 </div>
 <?php } ?>
 
-<div id="primary" class="typography_info">
+<div id="primary" <?php if($pagename !='Shop'){ ?> class="typography_info" <?php } ?> >
 	<div class="container">	
 		<?php
 		while ( have_posts() ) :
